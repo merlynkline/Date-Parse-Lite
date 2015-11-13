@@ -22,7 +22,7 @@ our $VERSION = '0.01';
 
 Parse human-entered strings that are intended to contain dates and attempt
 to extract machine-readable date information from them while being as
-generous as is reasonable with format interpretation.
+generous as possible with format interpretation.
 
     use Date::Parse::Lite;
 
