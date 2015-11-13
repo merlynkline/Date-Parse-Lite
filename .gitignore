@@ -18,4 +18,10 @@ nytprof.out
 *.o
 *.bs
 /_eumm/
+.lwpcookies
+.last_cover_stats
+nytprof.out
+pod2htm*.tmp
+Date-Parse-Lite-*
+Date-Parse-Lite-*.tar.gz
 
