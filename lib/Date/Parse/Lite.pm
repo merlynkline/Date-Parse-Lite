@@ -42,7 +42,7 @@ it does B<not> validate the date except to the extent that doing so informs the
 parsing, e.g. numbers in the range 13 to 31 will be parsed as days rather than
 months but 31 will still be parsed as a day even when the month is 2. The
 responsibility for validating the results and/or representing them in a more
-useful form remains with the caller, if it isinterested in doing so.
+useful form remains with the caller, if it is interested in doing so.
 
 The parser will extract dates from a wide range of inputs, including a lot
 which would not look like dates to a human reader. The intention is to
@@ -62,6 +62,11 @@ of digits or letters is essentially treated as a separator and then the remainin
 numbers and words are understood as a day, month and year with words describing
 months taken as priority over numbers. Any trailing text is ignored and any
 amount of non-alphanumeric text may surround and separate the recognised parts.
+While this means that a wide range of formats are accepted it does also mean
+that the fact that this parser was able to extract date information from a string
+does not guarantee that the string would have looked like a date to a human
+observer. The parser is founded on the assumption that the string to be parsed
+is intended to be a date.
 
 There is a single special case: a string of 8 digits, with or without leading
 and/or trailing whitespace, is treated as YYYYMMDD.
@@ -87,7 +92,8 @@ see below.
 =item date
 
 A string to be parsed - this will be passed to the C<parse> method.
-Note that this is optional; you can just call C<parse> later if you wish.
+Note that this is optional; you can just call C<parse> later (and
+repeatedly) if you wish.
 
 =back
 
@@ -134,18 +140,18 @@ sub _set_default_month_names {
 
 =head2 day()
 
-Returns the day parsed from the date string, if any.
-This will be a number in the range 1 to 31 if the parse was succesful.
+Returns the day parsed from the date string, if any. This will be a
+number in the range 1 to 31 if the parse was succesful.
 
 =head2 month()
 
-Returns the month parsed from the date string, if any.
-This will be a number in the range 1 to 12 if the parse was succesful.
+Returns the month parsed from the date string, if any. This will be
+a number in the range 1 to 12 if the parse was succesful.
 
 =head2 year()
 
-Returns the year parsed from the date string, if any.
-This will be a number if the parse was succesful.
+Returns the year parsed from the date string, if any. This will be
+a number if the parse was succesful.
 
 =head2 parsed()
 
@@ -167,13 +173,13 @@ sub _access {
 
 =head2 prefer_month_first_order([$flag])
 
-A flag indicating how day-month order ambiguity should be resolved,
+Returns a flag indicating how day-month order ambiguity will be resolved,
 e.g. in a date like C<1/2/2015>. Defaults to true so that American dates are
 parsed as expected. You may optionally pass a value to set the flag.
 
 =head2 literal_years_below_100([$flag])
 
-A flag indicating whether years below 100 should be interpreted literally
+Returns a flag indicating whether years below 100 will be interpreted literally
 (i.e. as being in the first century). If this is not set then such years
 will be intepreted as being the one nearest the system date that suits,
 e.g. in 2015 the year C<15> is interpreted as 2015, C<50> as 2050 and
@@ -193,7 +199,10 @@ sub _mutate_bool {
 
 =head2 parse($string)
 
-Parse a string and attempt to extract a date. Returns a success flag (see the C<parsed> method).
+Parse a string and attempt to extract a date. Returns a success flag
+(see the C<parsed> method). You can call this as many times as you like if
+you need to parse multiple strings. The results available from the methods
+described above will always be for the most recently parsed date string.
 
 =cut
 
@@ -412,6 +421,10 @@ L<http://cpanratings.perl.org/d/Date-Parse-Lite>
 =item * Search CPAN
 
 L<http://search.cpan.org/dist/Date-Parse-Lite/>
+
+=item * Source code on GitHub
+
+L<https://github.com/merlynkline/Date-Parse-Lite>
 
 =back
 
