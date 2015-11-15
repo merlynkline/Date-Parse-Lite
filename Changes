@@ -2,4 +2,6 @@ Revision history for Date-Parse-Lite
 
 0.01    2015-11-13
         First version, released on an unsuspecting world.
+0.02    2015-11-15
+        Upgraded Makefile.PL (Alexandr Ciornii)
 

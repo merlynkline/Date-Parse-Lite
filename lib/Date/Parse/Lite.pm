@@ -11,11 +11,11 @@ Date::Parse::Lite - Light weight parsing of human-entered date strings
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 
 =head1 SYNOPSIS
