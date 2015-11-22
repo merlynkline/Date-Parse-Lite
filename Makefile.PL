@@ -10,7 +10,7 @@ WriteMakefile1(
     ABSTRACT_FROM    => 'lib/Date/Parse/Lite.pm',
     LICENSE          => 'Artistic_2_0',
     PL_FILES         => {},
-    MIN_PERL_VERSION => 5.006,
+    MIN_PERL_VERSION => 5.008_001,
     CONFIGURE_REQUIRES => {
         'ExtUtils::MakeMaker' => 0,
     },

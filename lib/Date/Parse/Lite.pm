@@ -1,6 +1,6 @@
 package Date::Parse::Lite;
 
-use 5.006;
+use 5.008_001;
 use strict;
 use warnings FATAL => 'all';
 use Carp;
@@ -11,11 +11,11 @@ Date::Parse::Lite - Light weight parsing of human-entered date strings
 
 =head1 VERSION
 
-Version 0.02
+Version 0.03
 
 =cut
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 =head1 SYNOPSIS
